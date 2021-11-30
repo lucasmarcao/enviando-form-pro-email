@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://www.bloomin.com.br/img/internas/servicos/email-marketing.png"
+    type="image/x-icon">
+  <title>E-mail Marcão</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+  <script>
+    function telefonemasc(n) {
+
+      var c = n.value;
+
+      if (isNaN(c[c.length - 1])) { // impede entrar outro caractere que não seja número
+        n.value = c.substring(0, c.length - 1);
+        return;
+      }
+
+      n.setAttribute("maxlength", "14");
+
+      if (c.length == 1) n.value = "(";
+      if (c.length == 3) n.value += ")";
+
+      if (c.length == 9) n.value += "-";
+    }
+  </script>
+  <h1> Digite suas informações.</h1>
+  <form action="https://api.staticforms.xyz/submit" method="post" class="needs-validation" novalidate
+    autocomplete="off">
+    <div class="centro">
+      <fieldset>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 formulario">
+              <div class="row botoes">
+                <input type="hidden" name="accessKey" value="beef320e-2ce7-4575-91a3-62ca71332753">
+                <div class="col-lg-6 col-sm-12 form-group">
+                  <label for="nome"> Nome completo: </label>
+                  <input type="text" name="name" id="nome" placeholder="Digite seu nome" pattern=".{3,}"
+                    class="form-control input-dados" required />
+                  <div class="invalid-tooltip">
+                    Digite um nome com ao menos 3 letras.
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 form-group">
+                  <label for="nascimento"> Data de nascimento: </label>
+                  <input type="date" name="$data_que_nasceu" class="form-control input-dados" id="nascimento" required />
+                  <div class="invalid-tooltip">
+                    Selecione uma data.
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 form-group">
+                  <label for="email"> Email: </label>
+                  <input type="text" id="email" placeholder="Coloque seu melhor email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,}$" class="form-control input-dados" name="email"
+                    required>
+                  <div class="invalid-tooltip">
+                    E-mail invalido.
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 form-group">
+                  <label for="telefone"> Telefone: </label>
+                  <input oninput="telefonemasc(this)" type="text" placeholder="digite seu numero" pattern=".{13,}"
+                    class="form-control input-dados" id="telefone" name="$telefone" required>
+                  <div class="invalid-tooltip">
+                    Telefone invalido.
+                  </div>
+                </div>
+                <div class="col-lg-12 col-sm-12 form-group">
+                  <label for="mensagem"> Mensagem: </label>
+                  <textarea id="mensagem" class="form-control input-dados" name="message" minlength="20"
+                  placeholder="Fale o que deseja..." rows="4" required></textarea>
+                  <div class="invalid-tooltip">
+                    Texto muito curto.
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="centro">
+                    <input type="hidden" name="redirectTo"
+                      value="#">
+                    <input id="resetador" type="reset" value="LIMPAR TUDO" class="btn btn-primary">
+                    <input id="enviador" type="submit" value="ENVIAR" class="btn btn-success">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </form>
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+</body>
+
+</html>
