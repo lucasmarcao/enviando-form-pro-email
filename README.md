@@ -2,4 +2,4 @@
 isso aqui é um formulario html
 
 
-o bagulho é que eu estou usando uma API chama staticforms mas preciso aprender a fazer a minha.
+o bagulho é que eu estou usando uma API chamada staticforms mas preciso aprender a fazer a minha.
